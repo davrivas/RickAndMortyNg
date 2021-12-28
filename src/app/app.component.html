@@ -1,5 +1,24 @@
-<h1>Rick and Morty Ng</h1>
+<div class="container">
+  <h1 class="h1 text-center">Rick and Morty Ng</h1>
 
-<div>
-  {{ characterResult | json }}
+  <hr class="hr">
+
+  <div *ngIf="isBusy; else notBusy">
+    <app-loading></app-loading>
+  </div>
+
+  <ng-template #notBusy>
+    <div *ngIf="failedRequest; else successRequest" class="alert alert-danger" role="alert">
+      Failed request 😔<br>
+      {{ errors | json }}
+    </div>
+  </ng-template>
+
+  <ng-template #successRequest>
+    <div class="row">
+      <div *ngFor="let character of result.results" class="col-md-6 col-lg-4 col-xl-3 mb-3">
+        <app-character-card [character]="character"></app-character-card>
+      </div>
+    </div>
+  </ng-template>
 </div>

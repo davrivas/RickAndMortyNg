@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CharacterResult } from './models/character.model';
+import { CharacterResult, Info } from './models/character.model';
 import { CharacterService } from './services/character.service';
 
 @Component({
@@ -8,15 +8,28 @@ import { CharacterService } from './services/character.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  characterResult: CharacterResult;
+  isBusy = true;
+  failedRequest = false;
+  errors: any;
+
+  result: CharacterResult;
+  characterListInfo: Info;
 
   constructor(private readonly characterService: CharacterService) {}
 
   ngOnInit(): void {
     this.characterService.getCharacters(null).subscribe(result => {
-      this.characterResult = result;
+      this.result = result;
+
+      if (!this.characterListInfo) {
+        this.characterListInfo = result.info;
+      }
+      
+      this.isBusy = false;
     }, error => {
-      alert(JSON.stringify(error));
+      this.isBusy = false;
+      this.failedRequest = true;
+      this.errors = error;
     })
   }
 }

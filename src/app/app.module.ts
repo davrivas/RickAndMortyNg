@@ -3,10 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CharacterCardComponent } from './components/character-card/character-card.component';
+import { LoadingComponent } from './components/loading/loading.component';
+import { MaleIconComponent } from './components/icons/male-icon/male-icon.component';
+import { FemaleIconComponent } from './components/icons/female-icon/female-icon.component';
+import { UnknownIconComponent } from './components/icons/unknown-icon/unknown-icon.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CharacterCardComponent,
+    LoadingComponent,
+    MaleIconComponent,
+    FemaleIconComponent,
+    UnknownIconComponent
   ],
   imports: [
     BrowserModule,

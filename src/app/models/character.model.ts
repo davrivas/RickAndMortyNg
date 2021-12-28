@@ -2,7 +2,7 @@ export interface Info {
     count: number;
     pages: number;
     next: string;
-    prev?: any;
+    prev?: string;
 }
 
 export interface Origin {
@@ -15,7 +15,7 @@ export interface Location {
     url: string;
 }
 
-export interface Result {
+export interface Character {
     id: number;
     name: string;
     status: string;
@@ -32,5 +32,5 @@ export interface Result {
 
 export interface CharacterResult {
     info: Info;
-    results: Result[];
+    results: Character[];
 }

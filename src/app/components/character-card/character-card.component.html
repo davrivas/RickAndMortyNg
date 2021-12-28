@@ -1,0 +1,44 @@
+<div class="card">
+    <div class="card-header">
+        <h2>{{ character.name }}</h2>
+    </div>
+    <div class="card-body">
+        <div class="d-flex justify-content-center mb-3">
+            <img *ngIf="character.image; else noImage" [src]="character.image"
+                [alt]="'\'' + character.name + '\' poster'" class="img-thumbnail">
+            <ng-template #noImage>
+                <p>No image</p>
+            </ng-template>
+        </div>
+        <p>
+            <strong>Status:</strong>
+            <span [ngClass]="{
+                'text-success': (character.status | lowercase) === 'alive',
+                'text-danger': (character.status | lowercase) === 'dead',
+                'text-secondary': (character.status | lowercase) === 'unknown'
+            }">
+                {{ character.status }}
+            </span>
+        </p>
+        <p><strong>Species:</strong> {{ character.species }}</p>
+        <p>
+            <strong>Gender:</strong>
+            <span>
+                {{ character.gender }}
+            </span>
+            <span [ngSwitch]="(character.gender | lowercase)">
+                <span *ngSwitchCase="'male'">
+                    <app-male-icon></app-male-icon>
+                </span>
+                <span *ngSwitchCase="'female'">
+                    <app-female-icon></app-female-icon>
+                </span>
+                <span *ngSwitchCase="'unknown'">
+                    <app-unknown-icon></app-unknown-icon>
+                </span>
+            </span>
+        </p>
+
+        <p><strong>Origin:</strong> {{ character.origin.name }}</p>
+    </div>
+</div>
