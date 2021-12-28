@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "RickAndMortyNg"
+    }
+  },
+  "defaultProject": "RickAndMortyNg",
+  "cli": {
+    "analytics": "d8e9ea2d-2bf9-448f-b0b9-0c3dfa7d12cf"
+  }
 }
