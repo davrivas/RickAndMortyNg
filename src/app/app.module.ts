@@ -7,7 +7,6 @@ import { CharacterCardComponent } from './components/character-card/character-ca
 import { LoadingComponent } from './components/loading/loading.component';
 import { MaleIconComponent } from './components/icons/male-icon/male-icon.component';
 import { FemaleIconComponent } from './components/icons/female-icon/female-icon.component';
-import { UnknownIconComponent } from './components/icons/unknown-icon/unknown-icon.component';
 
 @NgModule({
   declarations: [
@@ -15,8 +14,7 @@ import { UnknownIconComponent } from './components/icons/unknown-icon/unknown-ic
     CharacterCardComponent,
     LoadingComponent,
     MaleIconComponent,
-    FemaleIconComponent,
-    UnknownIconComponent
+    FemaleIconComponent
   ],
   imports: [
     BrowserModule,
